@@ -4,7 +4,8 @@ Header only c++ library for drawing simple charts in the terminal. Should work f
 ## Basic usage
 ```cpp
 std::vector<int> values = { 1, 2, 3, 4, 3, 2, 1, 2, 3, 4, 5 };
-std::cout << term_chart::render(4, values);
+constexpr short chart_height = 4;
+std::cout << term_chart::render(chart_height, values);
 ```
 
 ## Example charts
