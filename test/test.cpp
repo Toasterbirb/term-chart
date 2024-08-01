@@ -1,4 +1,4 @@
-#include "term-chart.hpp"
+#include "term_chart.hpp"
 
 #include <iostream>
 #include <string>

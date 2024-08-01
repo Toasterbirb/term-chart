@@ -1,4 +1,4 @@
-# term-chart
+# term_chart
 Header only c++ library for drawing simple charts in the terminal. Should work from C++14 onwards
 
 ## Basic usage
