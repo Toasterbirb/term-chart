@@ -7,15 +7,6 @@
 
 namespace term_chart
 {
-	namespace internal
-	{
-		template<typename T>
-		T normalize(const T value, const T min, const T max, const short normalized_maximum)
-		{
-			return ((value - min) / static_cast<double>(max - min)) * normalized_maximum;
-		};
-	}
-
 	/**
 	 * @brief Draw a line chart
 	 *
@@ -46,9 +37,14 @@ namespace term_chart
 		}
 		else
 		{
+			const auto normalize = [](const T value, const T min, const T max, const short normalized_maximum)
+			{
+				return ((value - min) / static_cast<double>(max - min)) * normalized_maximum;
+			};
+
 			// Normalize the values normally
-			std::transform(values.begin(), values.end(), normalized_values.begin(), [height, min_value, max_value](const T value){
-				return std::round(internal::normalize(value, min_value, max_value, height));
+			std::transform(values.begin(), values.end(), normalized_values.begin(), [height, min_value, max_value, normalize](const T value){
+				return std::round(normalize(value, min_value, max_value, height));
 			});
 		}
 
